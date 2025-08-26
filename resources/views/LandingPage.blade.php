@@ -115,6 +115,232 @@
   </div>
 </section>
 
+<!-- Product Carousel -->
+<section class="product-carousel-section pt-3 pb-5">
+
+  <div class="container text-center">
+    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- Item 1 -->
+<div class="carousel-item active">
+  <div class="row justify-content-center align-items-center">
+    
+    <!-- Gambar -->
+    <div class="col-md-4">
+      <img src="{{ asset('images/yayle.png') }}" class="d-block w-100 rounded-4" alt="Yayle">
+    </div>
+
+    <!-- Teks -->
+    <div class="col-md-6">
+      <h5 class="mt-3">Yayle</h5>
+      <p>
+        Yayle merupakan rangkaian produk herbal berbasis madu yang dirancang khusus untuk mendukung 
+        tumbuh kembang dan kebutuhan anak-anak. Produk ini telah hadir sejak 2021 dan diformulasikan 
+        dengan berbagai varian sesuai kebutuhan spesifik si kecil, seperti peningkatan nafsu makan, 
+        pertahanan tubuh, kemampuan belajar, hingga kesehatan pencernaan.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+        <!-- Item 2 -->
+        <div class="carousel-item">
+          <div class="row justify-content-center">
+            <div class="col-md-5">
+              <img src="{{ asset('images/richsweet.png') }}" class="d-block w-100 rounded-4" alt="Richsweet">
+              <h5 class="mt-3">Richsweet</h5>
+              <p>Minyak Telon Richsweet adalah varian minyak telon dengan formula hangat yang aman untuk
+                 bayi, anak, dan dewasa. Produk ini tersedia dalam beberapa aroma yang lembut dan
+                tidak membuat mual, sehingga nyaman digunakan oleh sekeluarga.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="carousel-item">
+          <div class="row justify-content-center">
+            <div class="col-md-5">
+              <img src="{{ asset('images/madudiz.png') }}" class="d-block w-100 rounded-4" alt="Madudz">
+              <h5 class="mt-3">Madudz</h5>
+              <p>Madudiz adalah madu 100% alami yang diformulasikan untuk membantu menjaga
+                 daya tahan tubuh. Diproses dengan metode higienis dan dikemas menggunakan botol 
+                 PET food grade yang stabil dan tutup yang dirancang anti-tumpah. Produk ini juga 
+                mengandung ekstrak royal jelly, sehingga menawarkan nilai lebih dibanding madu biasa </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+ <!-- Custom Control -->
+<button class="carousel-control-prev custom-control" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+ <i class="bi bi-arrow-left-circle-fill fs-1"></i>
+</button>
+<button class="carousel-control-next custom-control" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+  <i class="bi bi-arrow-right-circle-fill fs-1"></i>
+</button>
+
+    </div>
+  </div>
+</section>
+
+<!-- Testimonial Section -->
+<section class="testimonial-section py-5">
+  <div class="container">
+    <div class="row">
+      
+      <!-- Left Content -->
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <span class="text-uppercase small text-muted">Testimonial</span>
+       <h2 class="fw-bold mb-3" style="color:#8B1C1C;">What They Say?</h2>
+        <p class="mb-2">Our Products has got more than 1000+ positive ratings from our users</p>
+        <p>Some of the Moms were greatly helped by our products</p>
+      </div>
+
+      <!-- Right Content -->
+      <div class="col-lg-6 d-flex align-items-start">
+        <div class="testimonial-card shadow-sm p-4 rounded-4 bg-white mt-lg-5 ms-lg-auto">
+          <p class="mb-3">“Rasanya enak dan manis. Kualitasnya bagus, anak-anak suka meminumnya.”</p>
+          <h6 class="mb-1">Gloria Rose</h6>
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="text-warning me-2">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <small class="text-muted">12 reviews at Yelp</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- News & Event Section -->
+<section class="news-section py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold mb-3">News & Events</h2>
+      <p class="text-muted">Discover the newest updates, programs, and events.</p>
+    </div>
+    
+    <div class="row">
+      
+      <!-- News Item -->
+     <div class="col-lg-4 col-md-6 mb-4 d-flex">
+        <div class="news-card shadow-sm rounded-4 overflow-hidden h-100">
+          <img src="{{ asset('images/product.jpg') }}"class="w-100" alt="News Image">
+          <div class="p-4">
+            <small class="text-muted">12 Agustus 2025</small>
+            <h5 class="fw-bold mt-2">Peluncuran Produk Baru</h5>
+            <p class="text-muted">Kami resmi meluncurkan produk terbaru yang dirancang untuk mendukung gaya hidup sehat masyarakat modern.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- News Item -->
+     <div class="col-lg-4 col-md-6 mb-4 d-flex">
+        <div class="news-card shadow-sm rounded-4 overflow-hidden h-100">
+          <img src="{{ asset('images/kolaborasi.jpeg') }}" class="w-100" alt="News Image">
+          <div class="p-4">
+            <small class="text-muted">3 Juli 2025</small>
+            <h5 class="fw-bold mt-2">Cabang Baru di Surabaya</h5>
+            <p class="text-muted">Kami membuka cabang baru di Surabaya dengan fasilitas modern untuk melayani pelanggan lebih baik.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- News Item -->
+      <div class="col-lg-4 col-md-6 mb-4 d-flex">
+        <div class="news-card shadow-sm rounded-4 overflow-hidden h-100">
+          <img src="{{ asset('images/penghargaan.jpg') }}" class="w-100" alt="News Image">
+          <div class="p-4">
+            <small class="text-muted">20 Juni 2025</small>
+            <h5 class="fw-bold mt-2">Penghargaan Perusahaan</h5>
+            <p class="text-muted">Perusahaan kami dianugerahi penghargaan “Best Growing Company 2025” dari Asosiasi Bisnis Nasional.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer pt-4 pb-3">
+  <div class="container">
+    <div class="row">
+      
+<!-- Kiri: Logo + Description -->
+<div class="col-lg-6 col-md-6 mb-3 d-flex align-items-start pt-5">
+  <div class="pe-3 me-3 border-end border-white">
+    <img src="{{ asset('images/logo.png') }}" alt="Logo" width="180">
+  </div>
+  <p class="mb-0 text-white fw-bold">
+    A retail brand for Mom and Baby Care products
+  </p>
+</div>
+
+
+      <!-- Kanan: Company, Contact, More -->
+      <div class="col-lg-6 col-md-6 ms-auto pt-2">
+       <div class="row" style="padding-left: 7rem;">
+          <!-- Company -->
+          <div class="col-lg-4 col-md-4 mb-3">
+            <h6 class="fw-bold text-white">Company</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="footer-link">About</a></li>
+              <li><a href="#" class="footer-link">Careers</a></li>
+              <li><a href="#" class="footer-link">Mobile</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div class="col-lg-4 col-md-4 mb-3">
+            <h6 class="fw-bold text-white">Contact</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="footer-link">Help/FAQ</a></li>
+              <li><a href="#" class="footer-link">Press</a></li>
+              <li><a href="#" class="footer-link">Affiliates</a></li>
+            </ul>
+          </div>
+
+          <!-- More -->
+          <div class="col-lg-4 col-md-4 mb-3">
+            <h6 class="fw-bold text-white">More</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="footer-link">Airlinefees</a></li>
+              <li><a href="#" class="footer-link">Airline</a></li>
+              <li><a href="#" class="footer-link">Low fare tips</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Social Icons -->
+    <div class="text-center my-2">
+      <a href="#" class="footer-icon"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="footer-icon"><i class="bi bi-tiktok"></i></a>
+      <a href="#" class="footer-icon"><i class="bi bi-youtube"></i></a>
+      <a href="#" class="footer-icon"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center text-white small">
+      © Copyright 2025 PT. Satyalaksana Sangkala Adikarim Perkasa
+    </div>
+  </div>
+</footer>
+
+
+
   
   <style>
   
@@ -215,6 +441,114 @@
   line-height: 1.7;
   font-size: 15px;
   color: #333;
+}
+
+.product-carousel-section h2 {
+  color: #8C1C1C;
+}
+
+.carousel-item img {
+  max-height: 300px;
+  object-fit: contain;
+}
+
+/* Custom Carousel Control */
+.custom-control {
+  width: auto;
+  background: none;
+  border: none;
+}
+
+.custom-control i {
+  color: #8C1C1C;      
+  transition: 0.3s ease;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.custom-control i:hover {
+  color: #F9C300;    
+  transform: scale(1.2);
+}
+
+.testimonial-section {
+  background: #ffffff;
+  color: #333;
+}
+
+.testimonial-card {
+  position: relative;
+  border-left: 6px solid #f25454; 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.testimonial-card p {
+  font-style: italic;
+  color: #555;
+}
+
+@media (min-width: 992px) {
+  .testimonial-section .col-lg-6:last-child {
+    margin-top: 180px; 
+  }
+}
+
+.news-card {
+  min-height: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-section h2 {
+  font-family: 'Poppins', sans-serif;
+  color: #8C1C1C;
+}
+
+.news-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.news-card img {
+  height: 220px;
+  object-fit: cover;
+}
+
+.footer {
+  background-color: #8B1C1C;
+  color: #fff;
+  padding-top: 100px;   
+  padding-bottom: 100px; 
+}
+
+.footer .mb-4 {
+  margin-bottom: 0.5rem !important; 
+}
+
+.footer .my-3 {
+  margin: 0.5rem 0 !important; 
+}
+
+.footer p {
+  margin-bottom: 0 !important; 
+}
+
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 11px;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-icon {
+  color: #fff;
+  font-size: 20px;
+  margin: 0 8px;
 }
 
 
