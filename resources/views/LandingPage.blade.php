@@ -175,7 +175,7 @@
 
 .about-card p {
   margin-top: 5px;    
-  font-size: 24px;     
+  font-size: 23;     
 }
 
 .icon-wrapper {
