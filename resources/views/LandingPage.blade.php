@@ -116,75 +116,39 @@
 </section>
 
 <!-- Product Carousel -->
-<section class="product-carousel-section pt-3 pb-5">
+<div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
 
-  <div class="container text-center">
-    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-
-        <!-- Item 1 -->
-<div class="carousel-item active">
-  <div class="row justify-content-center align-items-center">
-    
-    <!-- Gambar -->
-    <div class="col-md-4">
-      <img src="{{ asset('images/yayle.png') }}" class="d-block w-100 rounded-4" alt="Yayle">
-    </div>
-
-    <!-- Teks -->
-    <div class="col-md-6">
-      <h5 class="mt-3">Yayle</h5>
-      <p>
-        Yayle merupakan rangkaian produk herbal berbasis madu yang dirancang khusus untuk mendukung 
-        tumbuh kembang dan kebutuhan anak-anak. Produk ini telah hadir sejak 2021 dan diformulasikan 
-        dengan berbagai varian sesuai kebutuhan spesifik si kecil, seperti peningkatan nafsu makan, 
-        pertahanan tubuh, kemampuan belajar, hingga kesehatan pencernaan.
-      </p>
-    </div>
-
-  </div>
-</div>
-
-
-        <!-- Item 2 -->
-        <div class="carousel-item">
-          <div class="row justify-content-center">
-            <div class="col-md-5">
-              <img src="{{ asset('images/richsweet.png') }}" class="d-block w-100 rounded-4" alt="Richsweet">
-              <h5 class="mt-3">Richsweet</h5>
-              <p>Minyak Telon Richsweet adalah varian minyak telon dengan formula hangat yang aman untuk
-                 bayi, anak, dan dewasa. Produk ini tersedia dalam beberapa aroma yang lembut dan
-                tidak membuat mual, sehingga nyaman digunakan oleh sekeluarga.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="carousel-item">
-          <div class="row justify-content-center">
-            <div class="col-md-5">
-              <img src="{{ asset('images/madudiz.png') }}" class="d-block w-100 rounded-4" alt="Madudz">
-              <h5 class="mt-3">Madudz</h5>
-              <p>Madudiz adalah madu 100% alami yang diformulasikan untuk membantu menjaga
-                 daya tahan tubuh. Diproses dengan metode higienis dan dikemas menggunakan botol 
-                 PET food grade yang stabil dan tutup yang dirancang anti-tumpah. Produk ini juga 
-                mengandung ekstrak royal jelly, sehingga menawarkan nilai lebih dibanding madu biasa </p>
-            </div>
-          </div>
-        </div>
-
+@foreach ($products as $index => $product)
+  <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center">
+        
+        <!-- Gambar -->
+        <img src="{{ asset('storage/' . $product->gambar_landing) }}" 
+             class="d-block w-100 rounded-4 mb-3" 
+             alt="{{ $product->nama_produk }}">
+        
+        <!-- Teks -->
+        <h5 class="mt-2">{{ $product->nama_produk }}</h5>
+        <p>{{ $product->deskripsi }}</p>
+      
       </div>
-
- <!-- Custom Control -->
-<button class="carousel-control-prev custom-control" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
- <i class="bi bi-arrow-left-circle-fill fs-1"></i>
-</button>
-<button class="carousel-control-next custom-control" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-  <i class="bi bi-arrow-right-circle-fill fs-1"></i>
-</button>
-
     </div>
   </div>
+@endforeach
+
+
+  </div>
+
+  <!-- Custom Control -->
+  <button class="carousel-control-prev custom-control" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+    <i class="bi bi-arrow-left-circle-fill fs-1"></i>
+  </button>
+  <button class="carousel-control-next custom-control" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+    <i class="bi bi-arrow-right-circle-fill fs-1"></i>
+  </button>
+</div>
 </section>
 
 <!-- Testimonial Section -->
@@ -272,76 +236,8 @@
   </div>
 </section>
 
-<footer class="footer pt-4 pb-3">
-  <div class="container">
-    <div class="row">
-      
-<!-- Kiri: Logo + Description -->
-<div class="col-lg-6 col-md-6 mb-3 d-flex align-items-start pt-5">
-  <div class="pe-3 me-3 border-end border-white">
-    <img src="{{ asset('images/logo.png') }}" alt="Logo" width="180">
-  </div>
-  <p class="mb-0 text-white fw-bold">
-    A retail brand for Mom and Baby Care products
-  </p>
-</div>
+@include('footer')
 
-
-      <!-- Kanan: Company, Contact, More -->
-      <div class="col-lg-6 col-md-6 ms-auto pt-2">
-       <div class="row" style="padding-left: 7rem;">
-          <!-- Company -->
-          <div class="col-lg-4 col-md-4 mb-3">
-            <h6 class="fw-bold text-white">Company</h6>
-            <ul class="list-unstyled">
-              <li><a href="#" class="footer-link">About</a></li>
-              <li><a href="#" class="footer-link">Careers</a></li>
-              <li><a href="#" class="footer-link">Mobile</a></li>
-            </ul>
-          </div>
-
-          <!-- Contact -->
-          <div class="col-lg-4 col-md-4 mb-3">
-            <h6 class="fw-bold text-white">Contact</h6>
-            <ul class="list-unstyled">
-              <li><a href="#" class="footer-link">Help/FAQ</a></li>
-              <li><a href="#" class="footer-link">Press</a></li>
-              <li><a href="#" class="footer-link">Affiliates</a></li>
-            </ul>
-          </div>
-
-          <!-- More -->
-          <div class="col-lg-4 col-md-4 mb-3">
-            <h6 class="fw-bold text-white">More</h6>
-            <ul class="list-unstyled">
-              <li><a href="#" class="footer-link">Airlinefees</a></li>
-              <li><a href="#" class="footer-link">Airline</a></li>
-              <li><a href="#" class="footer-link">Low fare tips</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Social Icons -->
-    <div class="text-center my-2">
-      <a href="#" class="footer-icon"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="footer-icon"><i class="bi bi-tiktok"></i></a>
-      <a href="#" class="footer-icon"><i class="bi bi-youtube"></i></a>
-      <a href="#" class="footer-icon"><i class="bi bi-linkedin"></i></a>
-    </div>
-
-    <!-- Copyright -->
-    <div class="text-center text-white small">
-      © Copyright 2025 PT. Satyalaksana Sangkala Adikarim Perkasa
-    </div>
-  </div>
-</footer>
-
-
-
-  
   <style>
   
     .hero-section .row { position: relative; z-index: 2; }
@@ -549,6 +445,14 @@
   color: #fff;
   font-size: 20px;
   margin: 0 8px;
+}
+
+.carousel-control-prev {
+  left: 5%;
+}
+
+.carousel-control-next {
+  right: 5%;
 }
 
 

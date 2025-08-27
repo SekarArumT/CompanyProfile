@@ -69,7 +69,7 @@
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <!-- Logo -->
-      <a class="navbar-brand d-flex align-items-center" href="#">
+      <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
         <img src="{{ asset('images/logo.png') }}" class="logo" alt="Logo">
       </a>
 
