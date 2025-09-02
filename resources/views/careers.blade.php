@@ -68,8 +68,6 @@
 <!-- teams section -->
 
 
-
-
 @include('footer')
 
   <style>
