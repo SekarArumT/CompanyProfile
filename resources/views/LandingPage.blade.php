@@ -90,18 +90,22 @@
     </div>
   </section>
 
- <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content bg-dark">
-        <div class="modal-body p-0">
-          <div class="ratio ratio-16x9">
-            <iframe id="videoFrame" src="" title="YouTube video" allow="autoplay; fullscreen" allowfullscreen></iframe>
-          </div>
+  <!-- Video Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-white" id="videoModalLabel">Company Profile Video</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <div class="ratio ratio-16x9">
+          <iframe id="videoFrame" src="" frameborder="0" allowfullscreen allow="autoplay"></iframe>
         </div>
-        <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
     </div>
   </div>
+</div>
 
   <!-- Our Product Section -->
 <section class="product-section text-center py-5">
@@ -195,46 +199,25 @@
     </div>
     
     <div class="row">
-      
-      <!-- News Item -->
-     <div class="col-lg-4 col-md-6 mb-4 d-flex">
-        <div class="news-card shadow-sm rounded-4 overflow-hidden h-100">
-          <img src="{{ asset('images/product.jpg') }}"class="w-100" alt="News Image">
-          <div class="p-4">
-            <small class="text-muted">12 Agustus 2025</small>
-            <h5 class="fw-bold mt-2">Peluncuran Produk Baru</h5>
-            <p class="text-muted">Kami resmi meluncurkan produk terbaru yang dirancang untuk mendukung gaya hidup sehat masyarakat modern.</p>
+      @foreach ($highlights as $event)
+        <div class="col-lg-4 col-md-6 mb-4 d-flex">
+          <div class="news-card shadow-sm rounded-4 overflow-hidden h-100">
+            
+            <!-- Gambar -->
+            <img src="{{ asset('storage/' . $event->gambar) }}" class="w-100" alt="{{ $event->judul }}">
+            
+            <div class="p-4">
+              <small class="text-muted">{{ \Carbon\Carbon::parse($event->tanggal)->translatedFormat('d F Y') }}</small>
+              <h5 class="fw-bold mt-2">{{ $event->judul }}</h5>
+              <p class="text-muted">{{ Str::limit($event->deskripsi, 100, '...') }}</p>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- News Item -->
-     <div class="col-lg-4 col-md-6 mb-4 d-flex">
-        <div class="news-card shadow-sm rounded-4 overflow-hidden h-100">
-          <img src="{{ asset('images/kolaborasi.jpeg') }}" class="w-100" alt="News Image">
-          <div class="p-4">
-            <small class="text-muted">3 Juli 2025</small>
-            <h5 class="fw-bold mt-2">Cabang Baru di Surabaya</h5>
-            <p class="text-muted">Kami membuka cabang baru di Surabaya dengan fasilitas modern untuk melayani pelanggan lebih baik.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- News Item -->
-      <div class="col-lg-4 col-md-6 mb-4 d-flex">
-        <div class="news-card shadow-sm rounded-4 overflow-hidden h-100">
-          <img src="{{ asset('images/penghargaan.jpg') }}" class="w-100" alt="News Image">
-          <div class="p-4">
-            <small class="text-muted">20 Juni 2025</small>
-            <h5 class="fw-bold mt-2">Penghargaan Perusahaan</h5>
-            <p class="text-muted">Perusahaan kami dianugerahi penghargaan “Best Growing Company 2025” dari Asosiasi Bisnis Nasional.</p>
-          </div>
-        </div>
-      </div>
-
+      @endforeach
     </div>
   </div>
 </section>
+
 
 @include('footer')
 
@@ -246,7 +229,7 @@
 
     .hero-image-wrapper { position: relative; text-align: center; margin-top: -360px; z-index: 1; }
     .hero-image { max-width: 800px; width: 100%; }
-    .hero-section { width: 100%; background-color: #8C1C1C; padding: 70px 0 0 0; position: relative; border-bottom-left-radius: 80px; border-bottom-right-radius: 80px; }
+    .hero-section { width: 100%; background-color: #8C1C1C; padding: 150px 0 0 0; position: relative; border-bottom-left-radius: 80px; border-bottom-right-radius: 80px; }
     .indicator { display: inline-flex; justify-content: center; align-items: center; width: 40px; height: 40px; margin-right: 10px; border-radius: 50%; background-color: transparent; color: #F9C300; font-weight: 600; cursor: pointer; }
     .indicator.active { background-color: #F9C300; color: #fff; border: none; }
 
@@ -348,7 +331,6 @@
   object-fit: contain;
 }
 
-/* Custom Carousel Control */
 .custom-control {
   width: auto;
   background: none;

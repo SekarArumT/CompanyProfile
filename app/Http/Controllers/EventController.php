@@ -81,4 +81,26 @@ class EventController extends Controller
     return view('admin.events.show', compact('event'));
 }
 
+public function setHighlight(Request $request, Event $event)
+{
+    $validated = $request->validate([
+        'highlight' => 'required|integer|min:0|max:3',
+    ]);
+
+    if ((int)$validated['highlight'] !== 0) {
+        $occupied = Event::where('highlight', (int)$validated['highlight'])
+            ->where('id', '!=', $event->id)
+            ->first();
+
+        if ($occupied) {
+            return back()->with('error', 'Slot highlight '.$validated['highlight'].' sudah dipakai event lain.');
+        }
+    }
+
+    $event->update(['highlight' => (int)$validated['highlight']]);
+
+    return back()->with('success', 'Highlight berhasil diperbarui.');
+}
+
+
 }

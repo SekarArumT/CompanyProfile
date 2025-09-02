@@ -5,7 +5,7 @@
     <h2 class="text-2xl font-bold mb-4">Edit Event</h2>
 
     <div class="bg-white shadow-md rounded-lg p-6">
-        <form action="{{ route('events.update', $event->id) }}" method="POST">
+        <form action="{{ route('events.update', $event->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -61,16 +61,9 @@
                        value="{{ old('editor', $event->editor) }}">
             </div>
 
-            <!-- Tombol -->
-            <div class="flex justify-end space-x-3">
-                <a href="{{ route('events.index') }}" 
-                   class="px-4 py-2 bg-gray-300 rounded-lg shadow hover:bg-gray-400">Batal</a>
-                <button type="submit" 
-                        class="px-4 py-2 bg-red-600 text-white rounded-lg shadow hover:bg-red-700">Update</button>
-            </div>
+            <!-- Gambar Event -->
 
-            
-        <div>
+            <div>
             <label class="block font-semibold mb-1">Gambar Event (jpg,jpeg,png|max:2048)</label>
             <input type="file" name="gambar" class="w-full border p-2 rounded">
 
@@ -82,6 +75,14 @@
                 </div>
             @endif
         </div>
+
+            <!-- Tombol -->
+            <div class="flex justify-end space-x-3">
+                <a href="{{ route('events.index') }}" 
+                   class="px-4 py-2 bg-gray-300 rounded-lg shadow hover:bg-gray-400">Batal</a>
+                <button type="submit" 
+                        class="px-4 py-2 bg-red-600 text-white rounded-lg shadow hover:bg-red-700">Update</button>
+            </div>
         </form>
     </div>
 </div>

@@ -31,6 +31,8 @@
             <thead class="bg-gray-200 text-left">
                 <tr>
                     <th class="p-3 w-16">No</th>
+                    <th class="p-3 w-40">Highlight</th>
+
                     <th class="p-3">Judul</th>
                     <th class="p-3">Deskripsi Singkat</th>
                     <th class="p-3">Tanggal</th>
@@ -43,6 +45,20 @@
                 @forelse($events as $event)
                     <tr class="border-b hover:bg-gray-50">
                         <td class="p-3">{{ $loop->iteration }}</td>
+                        <td class="p-3">
+                        <form action="{{ route('events.setHighlight', $event) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <select name="highlight" onchange="this.form.submit()"
+                                    class="border rounded px-2 py-1">
+                                <option value="0"  {{ $event->highlight==0 ? 'selected' : '' }}>Event</option>
+                                <option value="1"  {{ $event->highlight==1 ? 'selected' : '' }}>Highlight 1</option>
+                                <option value="2"  {{ $event->highlight==2 ? 'selected' : '' }}>Highlight 2</option>
+                                <option value="3"  {{ $event->highlight==3 ? 'selected' : '' }}>Highlight 3</option>
+                            </select>
+                        </form>
+                    </td>
+
                         <td class="p-3 font-semibold">{{ $event->judul }}</td>
                         <td class="p-3">{{ Str::limit($event->deskripsi_singkat, 80) }}</td>
                         <td class="p-3">{{ \Carbon\Carbon::parse($event->tanggal)->format('d M Y') }}</td>

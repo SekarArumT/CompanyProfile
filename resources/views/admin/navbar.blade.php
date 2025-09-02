@@ -36,6 +36,13 @@
                            Event
                         </a>
                      </li>
+                     <li>
+<a href="{{ route('brands.index') }}" 
+   class="block px-4 py-2 rounded text-white font-medium hover:bg-red-800">
+   Brands
+</a>
+
+                     </li>
                 </ul>
             </nav>
         </div>

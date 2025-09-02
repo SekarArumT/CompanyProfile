@@ -14,5 +14,6 @@ class Event extends Model
         'writer',
         'editor',
         'gambar',
+        'highlight',
     ];
 }
