@@ -39,46 +39,53 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($brands as $brand)
-                    <tr class="border-b hover:bg-gray-50">
-                        <td class="p-3">{{ $loop->iteration }}</td>
-                        <td class="p-3">
-                            @if($brand->logo)
-                                <img src="{{ asset('storage/'.$brand->logo) }}" 
-                                     class="h-12 w-12 object-contain rounded border">
-                            @else
-                                <span class="text-gray-400 italic">No Logo</span>
-                            @endif
-                        </td>
-                        <td class="p-3">
-                            @if($brand->gambar)
-                                <img src="{{ asset('storage/'.$brand->gambar) }}" 
-                                     class="h-16 w-24 object-cover rounded border">
-                            @else
-                                <span class="text-gray-400 italic">No Image</span>
-                            @endif
-                        </td>
-                        <td class="p-3 font-semibold">{{ $brand->namabrand }}</td>
-                        <td class="p-3">{{ Str::limit($brand->deskripsi_singkat, 80) }}</td>
-                        <td class="p-3 flex items-center space-x-4">
-                            <a href="{{ route('admin.brands.edit', $brand) }}" 
-                               class="text-blue-500 hover:text-blue-700" title="Edit">
-                                <i class="bi bi-pencil-square text-lg"></i>
-                            </a>
-                            <form action="{{ route('admin.brands.destroy', $brand) }}" 
-                                  method="POST" class="inline">
-                                @csrf @method('DELETE')
-                                <button type="submit" 
-                                        class="text-red-500 hover:text-red-700"
-                                        title="Hapus"
-                                        onclick="return confirm('Yakin hapus brand ini?')">
-                                    <i class="bi bi-trash text-lg"></i>
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
+    @forelse($brands as $brand)
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3">{{ $loop->iteration }}</td>
+            <td class="p-3">
+                @if($brand->logo)
+                    <img src="{{ asset('storage/'.$brand->logo) }}" 
+                         class="h-12 w-12 object-contain rounded border">
+                @else
+                    <span class="text-gray-400 italic">No Logo</span>
+                @endif
+            </td>
+            <td class="p-3">
+                @if($brand->gambar)
+                    <img src="{{ asset('storage/'.$brand->gambar) }}" 
+                         class="h-16 w-24 object-cover rounded border">
+                @else
+                    <span class="text-gray-400 italic">No Image</span>
+                @endif
+            </td>
+            <td class="p-3 font-semibold">{{ $brand->namabrand }}</td>
+            <td class="p-3">{{ Str::limit($brand->deskripsi_singkat, 80) }}</td>
+            <td class="p-3 flex items-center space-x-4">
+                <a href="{{ route('admin.brands.edit', $brand) }}" 
+                   class="text-blue-500 hover:text-blue-700" title="Edit">
+                    <i class="bi bi-pencil-square text-lg"></i>
+                </a>
+                <form action="{{ route('admin.brands.destroy', $brand) }}" 
+                      method="POST" class="inline">
+                    @csrf @method('DELETE')
+                    <button type="submit" 
+                            class="text-red-500 hover:text-red-700"
+                            title="Hapus"
+                            onclick="return confirm('Yakin hapus brand ini?')">
+                        <i class="bi bi-trash text-lg"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+    @empty
+        <tr>
+            <td colspan="6" class="p-4 text-center text-gray-500 italic">
+                Belum ada data brand.
+            </td>
+        </tr>
+    @endforelse
+</tbody>
+
         </table>
     </div>
 </div>

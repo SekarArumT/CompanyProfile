@@ -12,41 +12,41 @@
         </p>
       </div>
 
-      <!-- Kanan: Company, Contact, More -->
-      <div class="col-lg-6 col-md-6 ms-auto pt-2">
-        <div class="row" style="padding-left: 7rem;">
-          <!-- Company -->
-          <div class="col-lg-4 col-md-4 mb-3">
-            <h6 class="fw-bold text-white">Company</h6>
-            <ul class="list-unstyled">
-              <li><a href="#" class="footer-link">About</a></li>
-              <li><a href="#" class="footer-link">Careers</a></li>
-              <li><a href="#" class="footer-link">Mobile</a></li>
-            </ul>
-          </div>
-
-          <!-- Contact -->
-          <div class="col-lg-4 col-md-4 mb-3">
-            <h6 class="fw-bold text-white">Contact</h6>
-            <ul class="list-unstyled">
-              <li><a href="#" class="footer-link">Help/FAQ</a></li>
-              <li><a href="#" class="footer-link">Press</a></li>
-              <li><a href="#" class="footer-link">Affiliates</a></li>
-            </ul>
-          </div>
-
-          <!-- More -->
-          <div class="col-lg-4 col-md-4 mb-3">
-            <h6 class="fw-bold text-white">More</h6>
-            <ul class="list-unstyled">
-              <li><a href="#" class="footer-link">Airlinefees</a></li>
-              <li><a href="#" class="footer-link">Airline</a></li>
-              <li><a href="#" class="footer-link">Low fare tips</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+<!-- Kanan: Company, Contact, More -->
+<div class="col-lg-6 col-md-6 ms-auto pt-4">
+  <div class="row">
+    <!-- Company -->
+    <div class="col-lg-4 col-md-4 col-6 mb-3">
+      <h6 class="fw-bold text-white">Company</h6>
+      <ul class="list-unstyled">
+        <li><a href="{{ url('/about-us') }}" class="footer-link">About</a></li>
+        <li><a href="{{ url('/careers') }}" class="footer-link">Careers</a></li>
+        <li><a href="#" class="footer-link">Mobile</a></li>
+      </ul>
     </div>
+
+    <!-- Contact -->
+    <div class="col-lg-4 col-md-4 col-6 mb-3">
+      <h6 class="fw-bold text-white">Contact</h6>
+      <ul class="list-unstyled">
+        <li><a href="#" class="footer-link">Help/FAQ</a></li>
+        <li><a href="#" class="footer-link">Press</a></li>
+        <li><a href="#" class="footer-link">Affiliates</a></li>
+      </ul>
+    </div>
+
+    <!-- More -->
+    <div class="col-lg-4 col-md-4 col-6 mb-3">
+      <h6 class="fw-bold text-white">More</h6>
+      <ul class="list-unstyled">
+        <li><a href="#" class="footer-link">Airlinefees</a></li>
+        <li><a href="#" class="footer-link">Airline</a></li>
+        <li><a href="#" class="footer-link">Low fare tips</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 
     <!-- Social Icons -->
     <div class="text-center my-2">

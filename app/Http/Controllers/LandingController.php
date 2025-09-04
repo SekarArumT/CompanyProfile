@@ -17,4 +17,6 @@ class LandingController extends Controller
 
         return view('LandingPage', compact('products','highlights'));
     }
+
+
 }

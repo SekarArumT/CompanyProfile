@@ -66,11 +66,11 @@
                         <td class="p-3">{{ $event->editor ?? '-' }}</td>
                         <td class="p-3 flex items-center space-x-4">
                             <a href="{{ route('events.show', $event) }}" 
-                            class="text-red-600 hover:text-green-800" title="Lihat">
+                            class="text-green-600 hover:text-green-800" title="Lihat">
                             <i class="bi bi-eye-fill text-lg"></i>
                             </a>
                             <a href="{{ route('events.edit', $event) }}" 
-                               class="text-red-500 hover:text-blue-700" title="Edit">
+                               class="text-blue-500 hover:text-blue-700" title="Edit">
                                 <i class="bi bi-pencil-square text-lg"></i>
                             </a>
                             <form action="{{ route('events.destroy', $event) }}" 

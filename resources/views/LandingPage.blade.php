@@ -14,20 +14,19 @@
           </p>
           <h3 class="fw-bold mb-3" style="font-style: italic;">#Xaxenarakaxa</h3>
           
+          {{-- --}}
           <!-- Pagination / Indicators -->
           <div class="d-flex align-items-center mb-4">
-            <span class="indicator active">1</span>
-            <span class="indicator">2</span>
-            <span class="indicator">3</span>
           </div>
         </div>
 
-        <div class="d-flex align-items-center justify-content-end mt-4">
-          <a href="#" class="btn-play me-3" data-bs-toggle="modal" data-bs-target="#videoModal">
-            <i class="bi bi-play-fill"></i>
-          </a>
-          <span>Watch Our Company Profile</span>
-        </div>
+<div class="d-flex align-items-center justify-content-end mt-4">
+  <a href="#" class="btn-play me-3" data-bs-toggle="modal" data-bs-target="#videoModal">
+    <i class="bi bi-play-fill"></i>
+  </a>
+  <span>Watch Our Company Profile</span>
+</div>
+
       </div>
 
       <div class="hero-image-wrapper">
@@ -161,34 +160,71 @@
     <div class="row">
       
       <!-- Left Content -->
-      <div class="col-lg-6 mb-4 mb-lg-0">
+      <div class="col-lg-5 mb-4 mb-lg-0">
         <span class="text-uppercase small text-muted">Testimonial</span>
-       <h2 class="fw-bold mb-3" style="color:#8B1C1C;">What They Say?</h2>
+        <h2 class="fw-bold mb-3" style="color:#8B1C1C;">What They Say?</h2>
         <p class="mb-2">Our Products has got more than 1000+ positive ratings from our users</p>
         <p>Some of the Moms were greatly helped by our products</p>
       </div>
 
-      <!-- Right Content -->
-      <div class="col-lg-6 d-flex align-items-start">
-        <div class="testimonial-card shadow-sm p-4 rounded-4 bg-white mt-lg-5 ms-lg-auto">
-          <p class="mb-3">“Rasanya enak dan manis. Kualitasnya bagus, anak-anak suka meminumnya.”</p>
-          <h6 class="mb-1">Gloria Rose</h6>
-          <div class="d-flex align-items-center justify-content-between">
-            <div class="text-warning me-2">
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
+      <!-- Right Content (3 Cards) -->
+      <div class="col-lg-7">
+        <div class="row g-4">
+          
+          <!-- Card 1 -->
+          <div class="col-md-6">
+            <div class="testimonial-card shadow-sm p-4 rounded-4 bg-white h-100">
+              <p class="mb-3">“Alhamdulillah waktu konsumsi yayle nafsu makan anak naik dan berat badan anak juga bertambah.”</p>
+              <h6 class="mb-1">Bunda Nike Cholifah</h6>
+              <div class="d-flex align-items-center justify-content-between">
+                <small class="text-muted">Whatsapp Messege</small>
+              </div>
             </div>
-            <small class="text-muted">12 reviews at Yelp</small>
           </div>
+
+          <!-- Card 2 -->
+          <div class="col-md-6">
+            <div class="testimonial-card shadow-sm p-4 rounded-4 bg-white h-100">
+              <p class="mb-3">“Puas, udah sering checkout dari anak saya yang pertama, harum disangka pakai minyak wangi”</p>
+              <h6 class="mb-1">Nurul Yz</h6>
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="text-warning me-2">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+                <small class="text-muted">reviews at shopee</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-md-12">
+            <div class="testimonial-card shadow-sm p-4 rounded-4 bg-white h-100">
+              <p class="mb-3">“Suka banget sama madunya karena tanpa pemanis buatan, bagus juga buat tubuh, dan harga pun ekonomis”</p>
+              <h6 class="mb-1">f******1</h6>
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="text-warning me-2">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+                <small class="text-muted">reviews at Tiktok Shop</small>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
 
 <!-- News & Event Section -->
 <section class="news-section py-5">
@@ -198,23 +234,23 @@
       <p class="text-muted">Discover the newest updates, programs, and events.</p>
     </div>
     
-    <div class="row">
-      @foreach ($highlights as $event)
-        <div class="col-lg-4 col-md-6 mb-4 d-flex">
-          <div class="news-card shadow-sm rounded-4 overflow-hidden h-100">
-            
-            <!-- Gambar -->
-            <img src="{{ asset('storage/' . $event->gambar) }}" class="w-100" alt="{{ $event->judul }}">
-            
-            <div class="p-4">
-              <small class="text-muted">{{ \Carbon\Carbon::parse($event->tanggal)->translatedFormat('d F Y') }}</small>
-              <h5 class="fw-bold mt-2">{{ $event->judul }}</h5>
-              <p class="text-muted">{{ Str::limit($event->deskripsi, 100, '...') }}</p>
-            </div>
-          </div>
+<div class="row justify-content-center">
+  @foreach ($highlights as $event)
+    <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
+      <div class="news-card shadow-sm rounded-4 overflow-hidden h-100">
+        
+        <!-- Gambar -->
+        <img src="{{ asset('storage/' . $event->gambar) }}" class="w-100" alt="{{ $event->judul }}">
+        
+        <div class="p-4 text-center">
+          <small class="text-muted">{{ \Carbon\Carbon::parse($event->tanggal)->translatedFormat('d F Y') }}</small>
+          <h5 class="fw-bold mt-2">{{ $event->judul }}</h5>
+          <p class="text-muted">{{ Str::limit($event->deskripsi, 100, '...') }}</p>
         </div>
-      @endforeach
+      </div>
     </div>
+  @endforeach
+</div>
   </div>
 </section>
 
@@ -435,6 +471,29 @@
 
 .carousel-control-next {
   right: 5%;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .hero-image-wrapper {
+    margin-top: -200px !important;  
+  }
+
+  .hero-image {
+    max-width: 100%;
+    height: auto;
+    
+  }
+
+  .hero-section {
+    padding: 150px 20px 0px 20px; 
+    text-align: center;
+  }
+
+  .hero-section .row {
+    flex-direction: column; 
+    align-items: center;
+  }
 }
 
 

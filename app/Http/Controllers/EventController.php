@@ -14,6 +14,19 @@ class EventController extends Controller
         return view('admin.events.index', compact('events'));
     }
 
+    public function showEvent()
+{
+    $events = Event::all();
+    return view('event', compact('events'));
+}
+
+public function showDetailEvent($id)
+    {
+        $event = Event::findOrFail($id);
+
+        return view('detailevent', compact('event'));
+    }
+
     public function create()
     {
         return view('admin.events.create');

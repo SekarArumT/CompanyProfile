@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CareerController;
 
 
 
@@ -19,14 +20,13 @@ Route::get('/about-us', function () {
     return view('aboutus');
 });
 
-Route::get('/brands', function () {
-    return view('brands');
-});
 
-Route::get('/careers', function () {
-    return view('careers');
-});
+Route::get('/careers', [CareerController::class, 'showCareers'])->name('careers');
 
+Route::get('/event', [EventController::class, 'showEvent'])->name('event');
+Route::get('/event/{id}', [EventController::class, 'showDetailEvent'])->name('event.detail');
+
+Route::get('/brand', [BrandController::class, 'showBrands'])->name('brand');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
@@ -36,6 +36,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/produk', function () {
         return view('admin.produk'); 
     })->name('admin.produk');
+
+    Route::get('/admin/careers', [CareerController::class, 'index'])->name('careers.index');
+Route::get('/admin/careers/create', [CareerController::class, 'create'])->name('admin.careers.create');
+Route::post('/admin/careers', [CareerController::class, 'store'])->name('admin.careers.store');
+Route::get('/admin/careers/{career}/edit', [CareerController::class, 'edit'])->name('admin.careers.edit');
+Route::put('/admin/careers/{career}', [CareerController::class, 'update'])->name('admin.careers.update');
+Route::delete('/admin/careers/{career}', [CareerController::class, 'destroy'])->name('admin.careers.destroy');
 
    Route::patch('/events/{event}/set-highlight', [EventController::class, 'setHighlight'])
     ->name('events.setHighlight');
@@ -47,7 +54,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/brands/{brand}/edit', [BrandController::class, 'edit'])->name('admin.brands.edit');
         Route::put('/admin/brands/{brand}', [BrandController::class, 'update'])->name('admin.brands.update');
         Route::delete('/admin/brands/{brand}', [BrandController::class, 'destroy'])->name('admin.brands.destroy');
-
 });
 
 Route::middleware('auth')->group(function () {

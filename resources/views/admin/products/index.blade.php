@@ -38,39 +38,37 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($products as $product)
-                    <tr class="border-b hover:bg-gray-50">
-                        <td class="p-3">
-                        <td class="p-3">{{ $loop->iteration }}</td>
-                        <td class="p-3">
-                            @if($product->gambar_landing)
-                                <img src="{{ asset('storage/'.$product->gambar_landing) }}" 
-                                     class="h-16 w-16 object-cover rounded border">
-                            @else
-                                <span class="text-gray-400 italic">No Image</span>
-                            @endif
-                        </td>
-                        <td class="p-3 font-semibold">{{ $product->nama_produk }}</td>
-                        <td class="p-3">{{ Str::limit($product->deskripsi, 80) }}</td>
-                        <td class="p-3 flex items-center space-x-4">
-                            <a href="{{ route('products.edit', $product) }}" 
-                               class="text-red-500 hover:text-blue-700" title="Edit">
-                                <i class="bi bi-pencil-square text-lg"></i>
-                            </a>
-                            <form action="{{ route('products.destroy', $product) }}" 
-                                  method="POST" class="inline">
-                                @csrf @method('DELETE')
-                                <button type="submit" 
-                                        class="text-red-500 hover:text-red-700"
-                                        title="Hapus"
-                                        onclick="return confirm('Yakin hapus?')">
-                                    <i class="bi bi-trash text-lg"></i>
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
+    @foreach($products as $product)
+        <tr class="border-b hover:bg-gray-50">
+            <td class="p-3">{{ $loop->iteration }}</td>
+            <td class="p-3">
+                @if($product->gambar_landing)
+                    <img src="{{ asset('storage/'.$product->gambar_landing) }}" 
+                         class="h-16 w-16 object-cover rounded border">
+                @else
+                    <span class="text-gray-400 italic">No Image</span>
+                @endif
+            </td>
+            <td class="p-3 font-semibold">{{ $product->nama_produk }}</td>
+            <td class="p-3">{{ Str::limit($product->deskripsi, 80) }}</td>
+            <td class="p-3 flex items-center space-x-4">
+                <a href="{{ route('products.edit', $product) }}" 
+                   class="text-blue-500 hover:text-blue-700" title="Edit">
+                    <i class="bi bi-pencil-square text-lg"></i>
+                </a>
+                <form action="{{ route('products.destroy', $product) }}" method="POST" class="inline">
+                    @csrf @method('DELETE')
+                    <button type="submit" 
+                            class="text-red-500 hover:text-red-700"
+                            title="Hapus"
+                            onclick="return confirm('Yakin hapus?')">
+                        <i class="bi bi-trash text-lg"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+    @endforeach
+</tbody>
         </table>
     </div>
 </div>
