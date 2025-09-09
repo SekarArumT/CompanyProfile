@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Event; 
+use App\Models\Aboutcount; // jangan lupa import model
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
@@ -15,8 +16,9 @@ class LandingController extends Controller
             ->orderBy('highlight') 
             ->get();
 
-        return view('LandingPage', compact('products','highlights'));
+        // Ambil About Us data (anggap hanya 1 baris total)
+        $aboutcount = Aboutcount::first();
+
+        return view('LandingPage', compact('products','highlights','aboutcount'));
     }
-
-
 }

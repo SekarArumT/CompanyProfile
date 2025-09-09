@@ -9,13 +9,11 @@
         <!-- Left Content -->
         <div class="col-lg-6">
           <h1 class="fw-bold mb-3">Hi Leaders!</h1>
-          <p class="mb-4">
-              Mari Bertumbuh atas harapan, ilmu, kerja, dan cinta 
-          </p>
-          <h3 class="fw-bold mb-3" style="font-style: italic;">#Xaxenarakaxa</h3>
+        <p class="mb-4" data-aos="fade-left" data-aos-delay="100">
+      Mari Bertumbuh atas harapan, ilmu, kerja, dan cinta 
+  </p>
+  <h3 class="fw-bold mb-3" style="font-style: italic;" data-aos="zoom-in" data-aos-delay="200">#Xaxenarakaxa</h3>
           
-          {{-- --}}
-          <!-- Pagination / Indicators -->
           <div class="d-flex align-items-center mb-4">
           </div>
         </div>
@@ -39,55 +37,55 @@
 
 
   <!-- About Us Section -->
-  <section class="about-section py-5 text-center">
+<section class="about-section py-5 text-center">
     <div class="container">
-      <h2 class="fw-bold mb-3">About Us</h2>
-      <p class="about-text">
-        PT. Satyalaksana Sangkala Adikarim Perkasa merupakan perusahaan 
-        yang bergerak dalam bisnis retail Brand untuk produk Mom and Baby Care. 
-        Brand kami adalah Yayle Vitamin Anak, Madudz, dan Richsweet.
-      </p>
+        <h2 class="fw-bold mb-3">About Us</h2>
+        <p class="about-text">
+            PT. Satyalaksana Sangkala Adikarim Perkasa merupakan perusahaan 
+            yang bergerak dalam bisnis retail Brand untuk produk Mom and Baby Care. 
+            Brand kami adalah Yayle Vitamin Anak, Madudz, dan Richsweet.
+        </p>
 
-      <div class="row g-4">
-        <div class="col-md-3">
-          <div class="about-card p-4 rounded-4 text-white h-100">
-            <div class="icon-wrapper mb-3">
-              <i class="bi bi-people fs-2"></i>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="about-card p-4 rounded-4 text-white h-100">
+                    <div class="icon-wrapper mb-3">
+                        <i class="bi bi-people fs-2"></i>
+                    </div>
+                    <h5>Insan Satyalaksana</h5>
+                    <p class="mb-0">>{{ $aboutcount->insan_satylaksana ?? 0 }}</p>
+                </div>
             </div>
-            <h5>Insan Satyalaksana</h5>
-            <p class="mb-0">&gt;200</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="about-card p-4 rounded-4 text-white h-100">
-            <div class="icon-wrapper mb-3">
-              <i class="bi bi-building fs-2"></i>
+            <div class="col-md-3">
+                <div class="about-card p-4 rounded-4 text-white h-100">
+                    <div class="icon-wrapper mb-3">
+                        <i class="bi bi-building fs-2"></i>
+                    </div>
+                    <h5>Distribution Center</h5>
+                    <p class="mb-0">{{ $aboutcount->distribution_center ?? 0 }}</p>
+                </div>
             </div>
-            <h5>Distribution Center</h5>
-            <p class="mb-0">15</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="about-card p-4 rounded-4 text-white h-100">
-            <div class="icon-wrapper mb-3">
-              <i class="bi bi-briefcase fs-2"></i>
+            <div class="col-md-3">
+                <div class="about-card p-4 rounded-4 text-white h-100">
+                    <div class="icon-wrapper mb-3">
+                        <i class="bi bi-briefcase fs-2"></i>
+                    </div>
+                    <h5>CSR Partners</h5>
+                    <p class="mb-0">{{ $aboutcount->csr_partner ?? 0 }}</p>
+                </div>
             </div>
-            <h5>CSR Partners</h5>
-            <p class="mb-0">2</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="about-card p-4 rounded-4 text-white h-100">
-            <div class="icon-wrapper mb-3">
-              <i class="bi bi-box-seam fs-2"></i>
+            <div class="col-md-3">
+                <div class="about-card p-4 rounded-4 text-white h-100">
+                    <div class="icon-wrapper mb-3">
+                        <i class="bi bi-box-seam fs-2"></i>
+                    </div>
+                    <h5>SKU Products</h5>
+                    <p class="mb-0">{{ $aboutcount->sku_products ?? 0 }}</p>
+                </div>
             </div>
-            <h5>SKU Products</h5>
-            <p class="mb-0">6</p>
-          </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>
 
   <!-- Video Modal -->
 <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
@@ -162,7 +160,7 @@
       <!-- Left Content -->
       <div class="col-lg-5 mb-4 mb-lg-0">
         <span class="text-uppercase small text-muted">Testimonial</span>
-        <h2 class="fw-bold mb-3" style="color:#8B1C1C;">What They Say?</h2>
+       <h2 class="fw-bold mb-3 typing" style="color:#8B1C1C;"></h2>
         <p class="mb-2">Our Products has got more than 1000+ positive ratings from our users</p>
         <p>Some of the Moms were greatly helped by our products</p>
       </div>
@@ -494,8 +492,20 @@
     flex-direction: column; 
     align-items: center;
   }
+  
 }
 
+.typing::after {
+    content: "|";
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
 
   </style>
 
@@ -512,4 +522,39 @@
       videoFrame.src = "";
     });
   </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const el = document.querySelector(".typing");
+    const text = "What They Say?";
+    const speed = 100; 
+    const eraseSpeed = 50;
+    const delayBetween = 1500;
+
+    let i = 1; // mulai dari 1, biar W tetap ada
+    let isDeleting = false;
+
+    function type() {
+        if(!isDeleting){
+            el.textContent = text.substring(0, i + 1);
+            i++;
+            if(i === text.length){
+                isDeleting = true;
+                setTimeout(type, delayBetween);
+                return;
+            }
+        } else {
+            el.textContent = text.substring(0, Math.max(1, i - 1)); // jangan hapus huruf pertama
+            i--;
+            if(i === 1){
+                isDeleting = false;
+                setTimeout(type, 500);
+                return;
+            }
+        }
+        setTimeout(type, isDeleting ? eraseSpeed : speed);
+    }
+
+    type();
+});
+</script>
 @endsection

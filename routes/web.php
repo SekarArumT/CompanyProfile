@@ -7,6 +7,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CareerController;
+use App\Http\Controllers\AboutcountController;
 
 
 
@@ -44,8 +45,17 @@ Route::get('/admin/careers/{career}/edit', [CareerController::class, 'edit'])->n
 Route::put('/admin/careers/{career}', [CareerController::class, 'update'])->name('admin.careers.update');
 Route::delete('/admin/careers/{career}', [CareerController::class, 'destroy'])->name('admin.careers.destroy');
 
+Route::get('/admin/aboutcount', [AboutcountController::class, 'index'])->name('aboutcount.index');
+Route::get('/admin/aboutcount/create', [AboutcountController::class, 'create'])->name('aboutcount.create');
+Route::post('/admin/aboutcount', [AboutcountController::class, 'store'])->name('aboutcount.store');
+Route::get('/admin/aboutcount/{aboutcount}/edit', [AboutcountController::class, 'edit'])->name('aboutcount.edit');
+Route::put('/admin/aboutcount/{aboutcount}', [AboutcountController::class, 'update'])->name('aboutcount.update');
+Route::delete('/admin/aboutcount/{aboutcount}', [AboutcountController::class, 'destroy'])->name('aboutcount.destroy');
+
    Route::patch('/events/{event}/set-highlight', [EventController::class, 'setHighlight'])
     ->name('events.setHighlight');
+   Route::patch('/events/{event}/status', [EventController::class, 'setStatus'])->name('events.setStatus');
+
 
         Route::get('/admin-brands', [BrandController::class, 'index'])->name('brands.index');
         Route::get('/admin/brands', [BrandController::class, 'index'])->name('admin.brands.index');
@@ -54,6 +64,8 @@ Route::delete('/admin/careers/{career}', [CareerController::class, 'destroy'])->
         Route::get('/admin/brands/{brand}/edit', [BrandController::class, 'edit'])->name('admin.brands.edit');
         Route::put('/admin/brands/{brand}', [BrandController::class, 'update'])->name('admin.brands.update');
         Route::delete('/admin/brands/{brand}', [BrandController::class, 'destroy'])->name('admin.brands.destroy');
+
+        
 });
 
 Route::middleware('auth')->group(function () {

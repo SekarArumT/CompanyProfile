@@ -168,49 +168,76 @@
 <!-- Photo Management Trainee -->
 <section class="trainee-section py-5">
   <div class="container text-center">
-    <h2 class="fw-bold mb-2" style="color:#8C1C1C;">MANAGEMENT TRAINEE</h2>
-    <p class="mb-2">Program <strong>Satyalaksana Academy</strong></p>
+    <h2 class="fw-bold mb-2" style="color:#000;">Management Trainee</h2>
+    <p class="mb-4">Program <strong><em>Satyalaksana Academy</em></strong></p>
 
-    <div class="trainee-frame mx-auto p-4" 
-         style="max-width:700px; border-radius:12px; background:#8C1C1C;">
+    <div class="trainee-frame mx-auto position-relative text-white" 
+         style="width:100%; max-width:900px; border-radius:16px; overflow:hidden;">
 
-      <!-- Carousel -->
-      <div id="traineeCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Background -->
+      <div class="position-relative w-100" style="padding-top:56.25%; /* 16:9 aspect ratio */">
+        <img src="{{ asset('images/academy.png') }}" 
+             alt="Satyalaksana Academy" 
+             class="position-absolute top-0 start-0 w-100 h-100" 
+             style="object-fit:cover;">
 
-        <div class="carousel-inner mb-3">
-          <div class="carousel-item active">
-            <img src="{{ asset('images/team.png') }}" 
-                 class="d-block w-100 rounded" 
-                 style="height:300px; object-fit:cover;" alt="Management Trainee 1">
-          </div>
-          <div class="carousel-item">
-            <img src="{{ asset('images/team.png') }}" 
-                 class="d-block w-100 rounded" 
-                 style="height:300px; object-fit:cover;" alt="Management Trainee 2">
-          </div>
-          <div class="carousel-item">
-            <img src="{{ asset('images/team.png') }}" 
-                 class="d-block w-100 rounded" 
-                 style="height:300px; object-fit:cover;" alt="Management Trainee 3">
-          </div>
+        <!-- Red Overlay -->
+        <div class="position-absolute top-0 start-0 w-100 h-100" 
+             style="background-color: rgba(140, 28, 28, 0.881);"></div>
+      </div>
+
+      <!-- Overlay content -->
+      <div class="overlay-content position-absolute top-50 start-50 translate-middle p-3 px-sm-4" 
+           style="width:90%; max-width:700px;">
+        <img src="{{ asset('images/satyalaksana academy.png') }}" 
+             alt="Satyalaksana Academy Logo" 
+             class="mb-3 img-fluid" 
+             style="max-height:50px;">
+
+        <p style="line-height:1.6; font-size:14px;" class="mb-3">
+          <strong>Satyalaksana Academy</strong> hadir sebagai kampus inkubasi bisnis yang berfokus mencetak generasi CEO muda yang berdaya dan bisa diandalkan. Di sini, setiap peserta dididik untuk menguasai mindset kepemimpinan, skill bisnis yang relevan, serta keberanian mengambil keputusan. Lebih dari sekadar tempat belajar, Satyalaksana Academy adalah ruang tumbuh yang menyiapkan anak muda agar mampu menjadi pemimpin visioner yang siap membawa perubahan dan kebermanfaatan bagi banyak orang.
+        </p>
+
+        <!-- Social Media -->
+        <div class="mt-2">
+          <p class="mb-2">Visit Us</p>
+          <a href="https://www.instagram.com/academysatyalaksana/" target="_blank" rel="noopener noreferrer" class="me-3">
+            <i class="bi bi-instagram fs-4 fs-sm-3 text-white"></i>
+          </a>
+          <a href="https://www.youtube.com/channel/UC1XxwPINLPVTg4Y6FgW_gnQ" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-youtube fs-4 fs-sm-3 text-white"></i>
+          </a>
         </div>
-
-<!-- Custom Indicator -->
-<div class="custom-carousel-indicators d-flex justify-content-center mt-3">
-  <span data-bs-target="#traineeCarousel" data-bs-slide-to="0" class="indicator active">1</span>
-  <span data-bs-target="#traineeCarousel" data-bs-slide-to="1" class="indicator">2</span>
-  <span data-bs-target="#traineeCarousel" data-bs-slide-to="2" class="indicator">3</span>
-</div>
-
       </div>
     </div>
   </div>
 </section>
 
 
+
 @include('footer')
 
   <style>
+
+    .trainee-frame .position-relative {
+  padding-top: 56.25%; 
+  min-height: 400px;  
+}
+
+@media (max-width: 992px) {
+  .trainee-frame .position-relative {
+    padding-top: 70%;  
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 576px) {
+  .trainee-frame .position-relative {
+    padding-top: 90%;  
+    min-height: 600px;
+  }
+}
+
     
 .hero-section {
   width: 100%;
@@ -305,28 +332,6 @@
   font-size: 14px;
   margin-bottom: 0;
 }
-
-.indicator {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  margin: 0 6px;
-  border-radius: 50%;
-  background-color: transparent;
-  border: 2px solid #F9C300;
-  color: #F9C300;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.indicator.active {
-  background-color: #F9C300;
-  color: #fff;
-}
-
   </style>
 
   <script>

@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@yield('title', 'My Website')</title>
+  <title>@yield('title', 'Satyalaksana Sangakala Adikarim Perkasa')</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
   <style>
     body {
@@ -113,7 +114,7 @@
     <div class="offcanvas-body">
       <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
         <li class="nav-item"><a class="nav-link" href="{{ url('/about-us') }}">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ url('/brands') }}">Brands</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url('/brand') }}">Brands</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ url('/careers')}}">Careers</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ url('/event')}}">Event</a></li>
       </ul>
@@ -134,5 +135,12 @@
       }
     });
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // durasi animasi
+    once: true // hanya animasi sekali
+  });
+</script>
 </body>
 </html>

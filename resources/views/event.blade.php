@@ -23,32 +23,117 @@
 <section class="news-section py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="fw-bold mb-3">All Events</h2>
+            <h2 class="fw-bold mb-3">Events</h2>
             <p class="text-muted">Discover all our programs and events.</p>
         </div>
-
-        <div class="row justify-content-center">
-            @foreach($events as $event)
-                <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
-    <a href="{{ route('event.detail', $event->id) }}" class="text-decoration-none text-dark w-100">
-        <div class="news-card shadow-sm rounded-4 overflow-hidden h-100">
-            <!-- Gambar -->
-            <img src="{{ asset('storage/' . $event->gambar) }}" 
-                 class="w-100" 
-                 alt="{{ $event->judul }}">
-
-            <div class="p-4 text-center">
-                <small class="text-muted">
-                    {{ \Carbon\Carbon::parse($event->tanggal)->translatedFormat('d F Y') }}
-                </small>
-                <h5 class="fw-bold mt-2">{{ $event->judul }}</h5>
-                <p class="text-muted">{{ Str::limit($event->deskripsi, 100, '...') }}</p>
-            </div>
-        </div>
-    </a>
+<div class="text-center mb-4">
+    <ul class="list-inline pt-filter text-uppercase fw-bold">
+        <li class="list-inline-item pt-filter-btn" data-filter=".previously">previously</li>
+        <li class="list-inline-item pt-filter-btn" data-filter=".now">Now</li>
+        <li class="list-inline-item pt-filter-btn active" data-filter=".upcoming">Upcoming</li>
+    </ul>
 </div>
 
-            @endforeach
+<div class="row justify-content-center">
+   {{-- UPCOMING CAROUSEL --}}
+@if($events->where('status', 'upcoming')->count() > 0)
+    <div class="col-12 mix upcoming mb-5">
+        <div id="upcomingCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @php $first = true; @endphp
+                @foreach($events->where('status', 'upcoming') as $event)
+                    <div class="carousel-item {{ $first ? 'active' : '' }}">
+                        <a href="{{ route('event.detail', $event->id) }}" class="text-decoration-none text-dark">
+                            <div class="news-card shadow-sm rounded-4 overflow-hidden">
+                                <img src="{{ asset('storage/' . $event->gambar) }}" 
+                                     class="d-block"
+                                     style="height:480px; width:450px; object-fit:cover; margin:0 auto;"
+                                     alt="{{ $event->judul }}">
+                            </div>
+                        </a>
+                    </div>
+                    @php $first = false; @endphp
+                @endforeach
+            </div>
+            <button class="carousel-control-prev custom-control" type="button" data-bs-target="#upcomingCarousel" data-bs-slide="prev">
+              <i class="bi bi-arrow-left-circle-fill fs-1"></i>
+            </button>
+            <button class="carousel-control-next custom-control" type="button" data-bs-target="#upcomingCarousel" data-bs-slide="next">
+              <i class="bi bi-arrow-right-circle-fill fs-1"></i>
+            </button>
+        </div>
+    </div>
+@else
+    <div class="col-12 mix upcoming mb-5">
+        <div class="text-center text-muted fw-bold py-5">
+            No events found.
+        </div>
+    </div>
+@endif
+
+   {{-- NOW CAROUSEL --}}
+@if($events->where('status', 'now')->count() > 0)
+    <div class="col-12 mix now mb-5">
+        <div id="nowCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @php $first = true; @endphp
+                @foreach($events->where('status', 'now') as $event)
+                    <div class="carousel-item {{ $first ? 'active' : '' }}">
+                        <a href="{{ route('event.detail', $event->id) }}" class="text-decoration-none text-dark">
+                            <div class="news-card shadow-sm rounded-4 overflow-hidden">
+                                <img src="{{ asset('storage/' . $event->gambar) }}" 
+                                     class="d-block"
+                                     style="height:480px; width:450px; object-fit:cover; margin:0 auto;"
+                                     alt="{{ $event->judul }}">
+                            </div>
+                        </a>
+                    </div>
+                    @php $first = false; @endphp
+                @endforeach
+            </div>
+            <button class="carousel-control-prev custom-control" type="button" data-bs-target="#nowCarousel" data-bs-slide="prev">
+              <i class="bi bi-arrow-left-circle-fill fs-1"></i>
+            </button>
+            <button class="carousel-control-next custom-control" type="button" data-bs-target="#nowCarousel" data-bs-slide="next">
+              <i class="bi bi-arrow-right-circle-fill fs-1"></i>
+            </button>
+        </div>
+    </div>
+@else
+    <div class="col-12 mix now mb-5">
+        <div class="text-center text-muted fw-bold py-5">
+            No events found.
+        </div>
+    </div>
+@endif
+
+
+    {{-- PREVIOUSLY GRID --}}
+    @foreach($events->where('status', 'previously') as $event)
+        <div class="col-lg-4 col-md-6 mb-4 mix previously">
+            <a href="{{ route('event.detail', $event->id) }}" class="text-decoration-none text-dark w-100">
+                <div class="news-card shadow-sm rounded-4 overflow-hidden h-100">
+                    <img src="{{ asset('storage/' . $event->gambar) }}" 
+                         class="w-100" 
+                         style="height:220px; object-fit:cover;"
+                         alt="{{ $event->judul }}">
+                    <div class="p-4 text-center">
+                        <small class="text-muted">
+                            {{ \Carbon\Carbon::parse($event->tanggal)->translatedFormat('d F Y') }}
+                        </small>
+                        <h5 class="fw-bold mt-2">{{ $event->judul }}</h5>
+                        <p class="text-muted">{{ Str::limit($event->deskripsi, 100, '...') }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    @endforeach
+</div>
+
+    <div id="empty-msg" class="text-center text-muted fw-bold mt-4" style="display:none;">
+        No events found.
+    </div>
+</div>
         </div>
     </div>
 </section>
@@ -57,6 +142,58 @@
 @include('footer')
 
 <style>
+/* Custom navigasi carousel */
+.carousel-control-prev.custom-control,
+.carousel-control-next.custom-control {
+  width: auto;
+  background: none;
+  border: none;
+}
+
+.carousel-control-prev.custom-control i,
+.carousel-control-next.custom-control i {
+  color: #8C1C1C;      
+  transition: 0.3s ease;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.carousel-control-prev.custom-control i:hover,
+.carousel-control-next.custom-control i:hover {
+  color: #F9C300;    
+  transform: scale(1.2);
+}
+
+.carousel-control-prev {
+  left: 5%;
+}
+
+.carousel-control-next {
+  right: 5%;
+}
+
+.mix.upcoming img,
+.mix.now img {
+    height: 480px !important;
+    width: 450px !important;
+    object-fit: cover;
+    margin: 0 auto; 
+    display: block; 
+}
+
+
+    .pt-filter-btn {
+    cursor: pointer;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.pt-filter-btn.active,
+.pt-filter-btn:hover {
+    background-color: #8C1C1C;
+    color: #fff;
+}
+
 .hero-section { 
     width: 100%; 
     background-color: #8C1C1C; 
@@ -70,6 +207,59 @@
 
 .news-card img { object-fit: cover; height: 220px; }
 .news-card .p-4 { padding: 1.5rem; }
+
+.mix.upcoming .news-card {
+    transform: scale(1.05);
+    border: 3px solid #8C1C1C;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.mix.upcoming img {
+    height: 400px;
+    object-fit: cover;
+}
+
 </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll(".pt-filter-btn");
+    const items = document.querySelectorAll(".mix");
+    const emptyMsg = document.getElementById("empty-msg");
+
+    showCategory("upcoming");
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", function() {
+            buttons.forEach(b => b.classList.remove("active"));
+            this.classList.add("active");
+
+            const filter = this.getAttribute("data-filter").replace('.', '');
+            showCategory(filter);
+        });
+    });
+
+    function showCategory(category) {
+        let visibleCount = 0;
+
+        items.forEach(item => {
+            if (item.classList.contains(category)) {
+                item.style.display = "block";
+                visibleCount++;
+            } else {
+                item.style.display = "none";
+            }
+        });
+
+        if (visibleCount === 0) {
+            emptyMsg.style.display = "block";
+        } else {
+            emptyMsg.style.display = "none";
+        }
+    }
+});
+
+</script>
+
 
 @endsection
