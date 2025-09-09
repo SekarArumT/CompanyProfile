@@ -48,6 +48,11 @@
                            Careers
                         </a>
                      </li>
+                        <li>
+                            <a href="{{ route('aboutcount.index') }}" 
+                            class="block px-4 py-2 rounded text-white font-medium hover:bg-red-800">
+                            About Count
+                            </a>
                 </ul>
             </nav>
         </div>

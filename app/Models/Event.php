@@ -15,5 +15,6 @@ class Event extends Model
         'editor',
         'gambar',
         'highlight',
+        'status',
     ];
 }

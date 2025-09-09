@@ -152,7 +152,7 @@
     <!-- Tombol Kembali -->
     <div class="mt-5">
       <a href="{{ url('/event') }}" class="btn btn-outline-danger rounded-pill px-4">
-        <i class="bi bi-arrow-left me-2"></i> Back to All Events
+        <i class="bi bi-arrow-left me-2"></i> Back
       </a>
     </div>
 

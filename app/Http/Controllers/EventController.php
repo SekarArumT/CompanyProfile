@@ -32,7 +32,7 @@ public function showDetailEvent($id)
         return view('admin.events.create');
     }
 
-    public function store(Request $request)
+  public function store(Request $request)
 {
     $data = $request->validate([
         'judul' => 'required|string|max:255',
@@ -58,7 +58,7 @@ public function showDetailEvent($id)
         return view('admin.events.edit', compact('event'));
     }
 
-   public function update(Request $request, Event $event)
+public function update(Request $request, Event $event)
 {
     $data = $request->validate([
         'judul' => 'required|string|max:255',
@@ -71,7 +71,6 @@ public function showDetailEvent($id)
     ]);
 
     if ($request->hasFile('gambar')) {
-       
         if ($event->gambar) {
             Storage::disk('public')->delete($event->gambar);
         }
@@ -82,6 +81,7 @@ public function showDetailEvent($id)
 
     return redirect()->route('events.index')->with('success', 'Event berhasil diperbarui!');
 }
+
 
     public function destroy(Event $event)
     {
@@ -114,6 +114,18 @@ public function setHighlight(Request $request, Event $event)
 
     return back()->with('success', 'Highlight berhasil diperbarui.');
 }
+
+public function setStatus(Request $request, Event $event)
+{
+    $validated = $request->validate([
+        'status' => 'required|in:previously,upcoming,now',
+    ]);
+
+    $event->update(['status' => $validated['status']]);
+
+    return back()->with('success', 'Status berhasil diperbarui.');
+}
+
 
 
 }

@@ -79,10 +79,11 @@
               <li>Digitalisasi dan sistem IT yang terintegrasi</li>
             </ul>
           </li>
-        </ol>
-        <p class="mt-3">
+          <li>
           Menyokong Masjid dengan semua perusahaan yang sudah untung memberikan sodakoh infaq ke masjid Satyalaksana dan semua masjid yg diurus Satyalaksana.
-        </p>
+        </li>
+        </ol>
+        
       </div>
      
       <img src="{{ asset('images/compass.png') }}" 
@@ -192,7 +193,7 @@
           </div>
         </div>
         <div class="d-flex mb-4">
-          <img src="{{ asset('images/icon-akal.png') }}" alt="Akal" class="filosofi-icon">
+          <img src="{{ asset('images/icon-akal.png') }}" alt="Akal" class="filosofi-icon" style="width:70px; height:70px;">
           <div>
             <h5 class="fw-bold mb-1">Akal</h5>
             <p>Insan Satyalaksana wajib menjaga akal dengan belajar terus-menerus.</p>
@@ -203,7 +204,7 @@
       <!-- Right Column -->
       <div class="col-md-6">
         <div class="d-flex mb-4">
-          <img src="{{ asset('images/icon-kehormatan.png') }}" alt="Kehormatan" class="filosofi-icon">
+         <img src="{{ asset('images/icon-kehormatan.png') }}" alt="Kehormatan" class="filosofi-icon" style="width:70px; height:50px;">
           <div>
             <h5 class="fw-bold mb-1">Kehormatan</h5>
             <p>Insan Satyalaksana wajib menjaga kehormatan diri sendiri, keluarga, dan perusahaan.</p>
