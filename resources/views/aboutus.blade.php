@@ -234,8 +234,6 @@
   <i class="bi bi-chevron-left"></i>
 </button>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-
 
       <!-- Circles Timeline -->
       <div class="d-flex justify-content-center align-items-center gap-4">
@@ -366,9 +364,24 @@
   color: #000;
 }
 
+.timeline-wrapper {
+  overflow: hidden;
+  width: 100%;
+  max-width: 700px;  /* maksimal lebar container */
+  margin: 0 auto;
+  padding: 0 1rem;   /* ruang di kiri & kanan */
+}
+
+.timeline-inner {
+  display: flex;
+  gap: 1rem;          /* jarak antar lingkaran */
+  transition: transform 0.4s ease;
+  justify-content: flex-start;
+}
+
 .circle {
-  width: 80px;
-  height: 80px;
+  width: clamp(50px, 8vw, 80px);   /* minimal 50px, maksimal 80px */
+  height: clamp(50px, 8vw, 80px);
   border-radius: 50%;
   background: #8C1C1C;
   color: #fff;
@@ -376,23 +389,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.4s ease, opacity 0.4s ease, font-size 0.4s ease;
   cursor: pointer;
-  transform: scale(0.75); 
+  transition: all 0.4s ease;
   opacity: 0.6;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
 }
+
+.circle.active {
+  transform: scale(1.5);
+  opacity: 1;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
 .circle.small {
   width: 60px;
   height: 60px;
   opacity: 0.6;
   font-size: 0.9rem;
 }
-.circle.active {
-  transform: scale(1.5); 
-  opacity: 1;
-  font-size: 1.5rem;
-}
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   filter: invert(1);
