@@ -68,6 +68,21 @@
     .offcanvas .nav-link:hover {
       color: #F9C300 !important;
     }
+
+    /* Responsive image styling */
+    @media (max-width: 768px) {
+      .event-detail-section img {
+        height: 300px !important;
+        max-width: 100% !important;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .event-detail-section img {
+        height: 250px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -123,10 +138,14 @@
     
     <!-- Judul & Tanggal -->
     <div class="text-center mb-4">
-      <h2 class="fw-bold mb-2" style="color:#8C1C1C;">{{ $event->judul }}</h2>
-      <p class="text-muted">
-        {{ \Carbon\Carbon::parse($event->tanggal)->translatedFormat('d F Y') }}
-      </p>
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+          <h2 class="fw-bold mb-2" style="color:#8C1C1C;">{{ $event->judul }}</h2>
+          <p class="text-muted">
+            {{ \Carbon\Carbon::parse($event->tanggal)->translatedFormat('d F Y') }}
+          </p>
+        </div>
+      </div>
     </div>
 
     <!-- Gambar -->
@@ -134,20 +153,28 @@
       <img src="{{ asset('storage/' . $event->gambar) }}" 
            alt="{{ $event->judul }}" 
            class="img-fluid rounded-4 shadow-sm"
-           style="max-width:600px; height:auto;">
+           style="max-width:600px; height:400px; object-fit:contain;">
     </div>
 
     <!-- Isi Deskripsi -->
 <div class="mb-4">
-  <p class="fs-6" style="line-height:1.8; color:#444; text-align:justify;">
-    {!! nl2br(e($event->isi_berita)) !!}
-  </p>
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+      <p class="fs-6" style="line-height:1.8; color:#444; text-align:justify;">
+        {!! nl2br(e($event->isi_berita)) !!}
+      </p>
+    </div>
+  </div>
 </div>
 
 
     <!-- Writer & Editor -->
-    <p><strong>Writer:</strong> {{ $event->writer ?? '-' }}</p>
-    <p><strong>Editor:</strong> {{ $event->editor ?? '-' }}</p>
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <p><strong>Writer:</strong> {{ $event->writer ?? '-' }}</p>
+        <p><strong>Editor:</strong> {{ $event->editor ?? '-' }}</p>
+      </div>
+    </div>
 
     <!-- Tombol Kembali -->
     <div class="mt-5">

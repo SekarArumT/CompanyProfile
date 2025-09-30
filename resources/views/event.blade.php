@@ -38,7 +38,7 @@
    {{-- UPCOMING CAROUSEL --}}
 @if($events->where('status', 'upcoming')->count() > 0)
     <div class="col-12 mix upcoming mb-5">
-        <div id="upcomingCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div id="upcomingCarousel" class="carousel slide" data-bs-ride="carousel" style="max-width: 100%;">
             <div class="carousel-inner">
                 @php $first = true; @endphp
                 @foreach($events->where('status', 'upcoming') as $event)
@@ -46,8 +46,8 @@
                         <a href="{{ route('event.detail', $event->id) }}" class="text-decoration-none text-dark">
                             <div class="news-card shadow-sm rounded-4 overflow-hidden">
                                 <img src="{{ asset('storage/' . $event->gambar) }}" 
-                                     class="d-block"
-                                     style="height:480px; width:450px; object-fit:cover; margin:0 auto;"
+                                     class="d-block w-100"
+                                     style="height:400px; object-fit:contain; margin:0 auto;"
                                      alt="{{ $event->judul }}">
                             </div>
                         </a>
@@ -74,7 +74,7 @@
    {{-- NOW CAROUSEL --}}
 @if($events->where('status', 'now')->count() > 0)
     <div class="col-12 mix now mb-5">
-        <div id="nowCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div id="nowCarousel" class="carousel slide" data-bs-ride="carousel" style="max-width: 100%;">
             <div class="carousel-inner">
                 @php $first = true; @endphp
                 @foreach($events->where('status', 'now') as $event)
@@ -82,8 +82,8 @@
                         <a href="{{ route('event.detail', $event->id) }}" class="text-decoration-none text-dark">
                             <div class="news-card shadow-sm rounded-4 overflow-hidden">
                                 <img src="{{ asset('storage/' . $event->gambar) }}" 
-                                     class="d-block"
-                                     style="height:480px; width:450px; object-fit:cover; margin:0 auto;"
+                                     class="d-block w-100"
+                                     style="height:400px; object-fit:contain; margin:0 auto;"
                                      alt="{{ $event->judul }}">
                             </div>
                         </a>
@@ -115,7 +115,7 @@
                 <div class="news-card shadow-sm rounded-4 overflow-hidden h-100">
                     <img src="{{ asset('storage/' . $event->gambar) }}" 
                          class="w-100" 
-                         style="height:220px; object-fit:cover;"
+                         style="height:220px; object-fit:contain;"
                          alt="{{ $event->judul }}">
                     <div class="p-4 text-center">
                         <small class="text-muted">
@@ -173,11 +173,10 @@
 
 .mix.upcoming img,
 .mix.now img {
-    height: 480px !important;
-    width: 450px !important;
-    object-fit: cover;
+    height: 400px;
+    object-fit: contain;
     margin: 0 auto; 
-    display: block; 
+    display: block;
 }
 
 
@@ -210,14 +209,66 @@
 
 .mix.upcoming .news-card {
     transform: scale(1.05);
-    border: 3px solid #8C1C1C;
+
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .mix.upcoming img {
     height: 400px;
-    object-fit: cover;
+    object-fit: contain;
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .mix.upcoming img,
+  .mix.now img {
+      width: 100% !important;
+      height: 280px !important;
+      max-width: 100%;
+  }
+  
+  .carousel-control-prev {
+    left: 2%;
+  }
+  
+  .carousel-control-next {
+    right: 2%;
+  }
+  
+  .carousel-control-prev.custom-control i,
+  .carousel-control-next.custom-control i {
+    font-size: 2rem !important;
+  }
+  
+  .mix.upcoming .news-card {
+    transform: none;
+  
+  }
+}
+
+@media (max-width: 576px) {
+  .mix.upcoming img,
+  .mix.now img {
+      height: 220px !important;
+  }
+  
+  .carousel-control-prev.custom-control i,
+  .carousel-control-next.custom-control i {
+    font-size: 1.5rem !important;
+  }
+  
+  .pt-filter {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .pt-filter-btn {
+    display: block;
+    text-align: center;
+    margin: 5px 0;
+  }
+}
+
 
 </style>
 
