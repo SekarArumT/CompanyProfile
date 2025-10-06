@@ -179,7 +179,7 @@
       <!-- Left Column -->
       <div class="col-md-6">
         <div class="d-flex mb-4">
-          <img src="{{ asset('images/icon-agama.png') }}" alt="Agama" class="filosofi-icon">
+          <img src="{{ asset('images/icon-akal.png') }}" alt="Agama" class="filosofi-icon">
           <div>
             <h5 class="fw-bold mb-1">Agama</h5>
             <p>Insan Satyalaksana memahami agama secara komprehensif dan menjadikannya tuntunan utama dalam berkehidupan.</p>
@@ -193,7 +193,7 @@
           </div>
         </div>
         <div class="d-flex mb-4">
-          <img src="{{ asset('images/icon-akal.png') }}" alt="Akal" class="filosofi-icon" style="width:70px; height:70px;">
+          <img src="{{ asset('images/icon-agama.png') }}" alt="Akal" class="filosofi-icon" style="width:70px; height:70px;">
           <div>
             <h5 class="fw-bold mb-1">Akal</h5>
             <p>Insan Satyalaksana wajib menjaga akal dengan belajar terus-menerus.</p>
