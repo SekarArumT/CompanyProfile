@@ -178,21 +178,21 @@
     <div class="row g-4">
       <!-- Left Column -->
       <div class="col-md-6">
-        <div class="d-flex mb-4">
-          <img src="{{ asset('images/icon-akal.png') }}" alt="Agama" class="filosofi-icon">
+        <div class="d-flex align-items-center mb-4">
+          <img src="{{ asset('images/icon-akal.png') }}" alt="Agama" class="filosofi-icon" style="width:70px; height:70px;">
           <div>
             <h5 class="fw-bold mb-1">Agama</h5>
             <p>Insan Satyalaksana memahami agama secara komprehensif dan menjadikannya tuntunan utama dalam berkehidupan.</p>
           </div>
         </div>
-        <div class="d-flex mb-4">
+        <div class="d-flex align-items-center mb-4">
           <img src="{{ asset('images/icon-nyawa.png') }}" alt="Nyawa" class="filosofi-icon">
           <div>
             <h5 class="fw-bold mb-1">Nyawa</h5>
             <p>Insan Satyalaksana wajib menjaga atas nyawa dirinya dan nyawa perusahaan.</p>
           </div>
         </div>
-        <div class="d-flex mb-4">
+        <div class="d-flex align-items-center mb-4">
           <img src="{{ asset('images/icon-agama.png') }}" alt="Akal" class="filosofi-icon" style="width:70px; height:70px;">
           <div>
             <h5 class="fw-bold mb-1">Akal</h5>
@@ -203,19 +203,19 @@
 
       <!-- Right Column -->
       <div class="col-md-6">
-        <div class="d-flex mb-4">
+        <div class="d-flex align-items-center mb-4">
          <img src="{{ asset('images/icon-kehormatan.png') }}" alt="Kehormatan" class="filosofi-icon" style="width:70px; height:50px;">
           <div>
             <h5 class="fw-bold mb-1">Kehormatan</h5>
             <p>Insan Satyalaksana wajib menjaga kehormatan diri sendiri, keluarga, dan perusahaan.</p>
           </div>
         </div>
-        <div class="d-flex mb-4">
+        <div class="d-flex align-items-center mb-4">
           <img src="{{ asset('images/icon-harta.png') }}" alt="harta" class="filosofi-icon">
           <div>
             <h5 class="fw-bold mb-1">Harta</h5>
-            <p>Insan Satyalaksana wajib moncari harta yang halal dan barokah dermi menjaga 
-              agama, nyawa akal, dan kehormatan</p>
+            <p>Insan Satyalaksana wajib mencari harta yang halal dan barokah demi menjaga 
+              agama, nyawa, akal, dan kehormatan.</p>
           </div>
         </div>
       </div>
@@ -349,13 +349,18 @@
   height: 100%;
 }
 
+.filosofi-section .d-flex {
+  align-items: center; 
+}
+
 .filosofi-icon {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   margin-right: 15px;
   flex-shrink: 0;
-  filter: brightness(1) saturate(1.2); 
+  object-fit: contain;
 }
+    
 .filosofi-section p {
   margin-bottom: 0;
   color: #444;
